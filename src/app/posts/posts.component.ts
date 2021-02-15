@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient, HttpHeaders,  HttpParams,  HttpResponse} from '@angular/common/http';
 import{Observable, throwError} from 'rxjs';
-import 'rxjs/Rx';
 
 import{Post} from './post';
 @Component({
