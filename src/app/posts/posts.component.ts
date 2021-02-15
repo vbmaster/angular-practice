@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient, HttpResponse} from '@angular/common/http';
+import {HttpClient, HttpHeaders,  HttpParams,  HttpResponse} from '@angular/common/http';
 import{Observable, throwError} from 'rxjs';
 import {catchError, retry} from 'rxjs/operators'
-
+import{Post} from './post'
 @Component({
   selector: 'posts',
   templateUrl: './posts.component.html',
@@ -10,12 +10,26 @@ import {catchError, retry} from 'rxjs/operators'
 })
 
 export class PostsComponent {
-  readonly ROOT_URL="http://jsonplaceholder.typicode.com"
-  posts: any;
+  readonly ROOT_URL="https://jsonplaceholder.typicode.com"
+  posts: Observable<any>;
+  newPost: Observable<any>
+
  constructor(private http:HttpClient){
  }
 
  getPosts(){
-   this.posts= this.http.get(this.ROOT_URL + "/posts");
+   let params = new HttpParams().set('userId', '1');
+   let headers= new HttpHeaders().set('Authorization', 'auth-token');
+   this.posts= this.http.get<Post[]>(this.ROOT_URL + "/posts", {params, headers});
+ }
+
+ createPost(){
+   const data: Post={
+     id: null,
+     userId: 23,
+     title: 'New Post',
+     body: 'Hello world!'
+   };
+   this.newPost= this.http.post(this.ROOT_URL + "/posts", data);
  }
 }

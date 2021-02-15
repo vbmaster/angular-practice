@@ -2,5 +2,12 @@
 <button (click)="getPosts()"> Get Posts</button>
 
 <div *ngFor="let post of posts | async">
+  <h3> Get Data</h3>
   {{ post |json}}
 </div>
+<button (click)="createPost()">
+  Post Data
+</button>
+
+<h3> Post data</h3>
+{{newPost | async | json }}
