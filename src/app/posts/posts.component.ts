@@ -10,11 +10,12 @@ import {catchError, retry} from 'rxjs/operators'
 })
 
 export class PostsComponent {
+  readonly ROOT_URL="http://jsonplaceholder.typicode.com"
   posts: any;
  constructor(private http:HttpClient){
  }
 
  getPosts(){
-   this.posts= this.http.get("http://jsonplaceholder.typicode.com/posts")
+   this.posts= this.http.get(this.ROOT_URL + "/posts");
  }
 }
