@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient, HttpHeaders,  HttpParams,  HttpResponse} from '@angular/common/http';
 import{Observable, throwError} from 'rxjs';
-import {catchError, retry} from 'rxjs/operators'
-import{Post} from './post'
+import 'rxjs/Rx';
+
+import{Post} from './post';
 @Component({
   selector: 'posts',
   templateUrl: './posts.component.html',
@@ -12,7 +13,7 @@ import{Post} from './post'
 export class PostsComponent {
   readonly ROOT_URL="https://jsonplaceholder.typicode.com"
   posts: Observable<any>;
-  newPost: Observable<any>
+  newPost: Observable<Post>
 
  constructor(private http:HttpClient){
  }
@@ -30,6 +31,6 @@ export class PostsComponent {
      title: 'New Post',
      body: 'Hello world!'
    };
-   this.newPost= this.http.post(this.ROOT_URL + "/posts", data);
+   this.newPost= this.http.post<Post>(this.ROOT_URL + "/posts", data)
  }
 }
