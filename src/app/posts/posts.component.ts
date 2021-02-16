@@ -35,7 +35,7 @@ export class PostsComponent {
  }
 
  createPost(){
-  this.service.createPost() .subscribe(
+  this.service.createPost().subscribe(
                 (data) => {
                     this.newPost= (data as Post);
                 }

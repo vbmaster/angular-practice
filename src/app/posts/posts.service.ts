@@ -18,7 +18,7 @@ export class PostService {
   posts: { posts: Post[] } = { posts: [] };
 
   newPost: Observable<Post>;
-  private readonly ROOT_URL = "https://1jsonplaceholder.typicode.com";
+  private readonly ROOT_URL = "https://jsonplaceholder.typicode.com";
   private _posts = new BehaviorSubject<Post[]>([]);
   constructor(private http: HttpClient) {}
   getPosts() {
