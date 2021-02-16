@@ -34,7 +34,7 @@ export class PostService {
       title: "New Post",
       body: "Hello world!"
     };
-    return this.http.post(this.ROOT_URL + "/posts", data);
+    return this.http.post(this.ROOT_URL + "/posts", data).catch(this.handleError);
   }
 
   private handleError(error: Response){
