@@ -17,7 +17,7 @@ export class PostService extends DataService {
   //ROOT_URL = "https://1jsonplaceholder.typicode.com";
   
   constructor( http: HttpClient) {
-    super (http, 'https://jsonplaceholder.typicode.com');
+    super (http, 'https://jsonplaceholder.typicode.com/posts');
   }
   
 }

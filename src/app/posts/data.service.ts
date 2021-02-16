@@ -22,7 +22,7 @@ export class DataService {
   getAll() {
     let params = new HttpParams().set("userId", "1");
     let headers = new HttpHeaders().set("Authorization", "auth-token");
-    return this.http.get(this.ROOT_URL + "/posts", { headers })
+    return this.http.get(this.ROOT_URL , { headers })
     .map( response=>response)
     .catch(this.handleError);
   }
@@ -34,7 +34,7 @@ export class DataService {
       title: "New Post",
       body: "Hello world!"
     };
-    return this.http.post(this.ROOT_URL + "/posts", data).catch(this.handleError);
+    return this.http.post(this.ROOT_URL , data).catch(this.handleError);
   }
 
   private handleError(error: Response){
