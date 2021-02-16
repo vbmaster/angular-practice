@@ -20,25 +20,10 @@ export class PostsComponent {
  }
 
  getPosts(){
-  this.service.getAll().subscribe(
-                (data) => {
-                  this.posts=(data as Post[]);
-                },
-                (error: AppError)=>{
-                    if(error instanceof CustomError){
-                      console.log("custom error", error);
-          }else{
-                      throw error
-                    }
-                }
-            );
+  this.service.getAll().subscribe(posts => this.posts= (posts as Post[]));
  }
 
  createPost(){
-  this.service.create().subscribe(
-                (data) => {
-                    this.newPost= (data as Post);
-                }
-            );
+  this.service.create().subscribe((data) => {this.newPost= (data as Post)});
  }
 }

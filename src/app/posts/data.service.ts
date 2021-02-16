@@ -22,7 +22,9 @@ export class DataService {
   getAll() {
     let params = new HttpParams().set("userId", "1");
     let headers = new HttpHeaders().set("Authorization", "auth-token");
-    return this.http.get(this.ROOT_URL + "/posts", { headers }).catch(this.handleError);
+    return this.http.get(this.ROOT_URL + "/posts", { headers })
+    .map( response=>response)
+    .catch(this.handleError);
   }
 
   create() {
