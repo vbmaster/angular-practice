@@ -38,8 +38,7 @@ export class PostService {
   }
 
   private handleError(error: Response){
-    console.log(error);
-      if(error.status===1){
+      if(error.status===0){
         return Observable.throw(new CustomError(error));
       }else{
         return Observable.throw( new AppError(error));

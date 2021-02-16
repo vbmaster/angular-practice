@@ -24,7 +24,7 @@ export class PostsComponent {
                 (data) => {
                   this.posts=(data as Post[]);
                 },
-                (error: Response)=>{
+                (error: AppError)=>{
                     if(error instanceof CustomError){
                       console.log("custom error", error);
                     }else{
