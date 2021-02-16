@@ -20,14 +20,14 @@ export class PostsComponent {
  }
 
  getPosts(){
-  this.service.getPosts().subscribe(
+  this.service.getAll().subscribe(
                 (data) => {
                   this.posts=(data as Post[]);
                 },
                 (error: AppError)=>{
                     if(error instanceof CustomError){
                       console.log("custom error", error);
-                    }else{
+          }else{
                       throw error
                     }
                 }
@@ -35,7 +35,7 @@ export class PostsComponent {
  }
 
  createPost(){
-  this.service.createPost().subscribe(
+  this.service.create().subscribe(
                 (data) => {
                     this.newPost= (data as Post);
                 }
