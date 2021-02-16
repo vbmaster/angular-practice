@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {PostService} from './posts.service'
-
+import {AppError} from './common/app-error';
 import{Post} from './post';
 import{Observable, throwError} from 'rxjs';
 
@@ -23,7 +23,9 @@ export class PostsComponent {
                 (data) => {
                   this.posts=(data as Post[]);
                 },
-                console.error
+                (error: AppError)=>{
+
+                }
             );
  }
 
