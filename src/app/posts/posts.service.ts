@@ -18,7 +18,7 @@ export class PostService {
   posts: { posts: Post[] } = { posts: [] };
 
   newPost: Observable<Post>;
-  private readonly ROOT_URL = "https://jsonplaceholder.typicode.com";
+  private readonly ROOT_URL = "https://1jsonplaceholder.typicode.com";
   private _posts = new BehaviorSubject<Post[]>([]);
   constructor(private http: HttpClient) {}
   getPosts() {
@@ -38,7 +38,8 @@ export class PostService {
   }
 
   private handleError(error: Response){
-      if(error.status===0){
+    console.log(error);
+      if(error.status===1){
         return Observable.throw(new CustomError(error));
       }else{
         return Observable.throw( new AppError(error));
