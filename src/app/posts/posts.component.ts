@@ -27,6 +27,8 @@ export class PostsComponent {
                 (error: AppError)=>{
                     if(error instanceof CustomError){
                       console.log("custom error");
+                    }else{
+                      throw error
                     }
                 }
             );
@@ -36,8 +38,7 @@ export class PostsComponent {
   this.service.createPost() .subscribe(
                 (data) => {
                     this.newPost= (data as Post);
-                },
-                console.error
+                }
             );
  }
 }
