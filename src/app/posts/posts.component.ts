@@ -13,8 +13,8 @@ import { CustomError } from '../common/custom-error';
 
 export class PostsComponent {
   
-  posts: Post[];
-  newPost: Post;
+  posts: any[];
+  newPost: any;
 
  constructor(private service: PostService){
  }
