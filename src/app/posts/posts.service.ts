@@ -24,14 +24,7 @@ export class PostService {
   getPosts() {
     let params = new HttpParams().set("userId", "1");
     let headers = new HttpHeaders().set("Authorization", "auth-token");
-    return this.http.get(this.ROOT_URL + "/posts", { headers }).catch((error: Response)=>{
-      if(error.status===0){
-        return Observable.throw(new CustomError(error));
-      }else{
-        return Observable.throw( new AppError(error));
-      }
-      
-    });
+    return this.http.get(this.ROOT_URL + "/posts", { headers }).catch(this.handleError);
   }
 
   createPost() {
@@ -42,5 +35,13 @@ export class PostService {
       body: "Hello world!"
     };
     return this.http.post(this.ROOT_URL + "/posts", data);
+  }
+
+  private handleError(error: Response){
+      if(error.status===0){
+        return Observable.throw(new CustomError(error));
+      }else{
+        return Observable.throw( new AppError(error));
+      }
   }
 }
