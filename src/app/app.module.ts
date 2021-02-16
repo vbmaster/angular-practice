@@ -7,12 +7,11 @@ import { HelloComponent } from './hello.component';
 import {PostsComponent} from './posts/posts.component';
 import { HttpClientModule } from '@angular/common/http';
 import {PostService} from './posts/posts.service';
-import { AppError } from './common/app-error';
 
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, HttpClientModule],
-  declarations: [ AppComponent, HelloComponent, PostsComponent, AppError ],
+  declarations: [ AppComponent, HelloComponent, PostsComponent ],
   providers: [PostService],
   bootstrap:    [ AppComponent ]
 })
