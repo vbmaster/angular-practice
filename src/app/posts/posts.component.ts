@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient, HttpHeaders,  HttpParams,  HttpResponse} from '@angular/common/http';
-import{Observable, throwError} from 'rxjs';
+import {PostService} from './posts.service'
 
 import{Post} from './post';
+import{Observable, throwError} from 'rxjs';
+
 @Component({
   selector: 'posts',
   templateUrl: './posts.component.html',
@@ -10,26 +11,28 @@ import{Post} from './post';
 })
 
 export class PostsComponent {
-  readonly ROOT_URL="https://jsonplaceholder.typicode.com"
-  posts: Observable<any>;
-  newPost: Observable<Post>
+  
+  posts: Post[];
+  newPost: Post;
 
- constructor(private http:HttpClient){
+ constructor(private service: PostService){
  }
 
  getPosts(){
-   let params = new HttpParams().set('userId', '1');
-   let headers= new HttpHeaders().set('Authorization', 'auth-token');
-   this.posts= this.http.get<Post[]>(this.ROOT_URL + "/posts", { headers});
+  this.service.getPosts().subscribe(
+                (data) => {
+                  this.posts=(data as Post[]);
+                },
+                console.error
+            );
  }
 
  createPost(){
-   const data: Post={
-     id: null,
-     userId: 23,
-     title: 'New Post',
-     body: 'Hello world!'
-   };
-   this.newPost= this.http.post<Post>(this.ROOT_URL + "/posts", data)
+  this.service.createPost() .subscribe(
+                (data) => {
+                    this.newPost= (data as Post);
+                },
+                console.error
+            );
  }
 }

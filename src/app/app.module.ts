@@ -6,10 +6,12 @@ import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 import {PostsComponent} from './posts/posts.component';
 import { HttpClientModule } from '@angular/common/http';
+import {PostService} from './posts/posts.service';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, HttpClientModule ],
+  imports:      [ BrowserModule, FormsModule, HttpClientModule],
   declarations: [ AppComponent, HelloComponent, PostsComponent ],
+  providers: [PostService],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

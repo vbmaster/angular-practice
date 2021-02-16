@@ -18,12 +18,12 @@
         Body
       </th>
     </tr>
-    <tr *ngFor="let post of posts | async">
+    <tr *ngFor="let post of posts">
       <td>
         {{post.id}}
         </td>
         <td>
-          {{post.userid}}
+          {{post.userId}}
           </td>
           <td>
             {{post.title}}
@@ -39,4 +39,4 @@
 </button>
 
 <h3> Post data</h3>
-{{newPost | async | json }}
+{{newPost |  json }}
