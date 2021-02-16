@@ -10,6 +10,7 @@ import { Post } from "./post";
 import { BehaviorSubject } from "rxjs";
 import "rxjs/add/operator/catch";
 import "rxjs/add/observable/throw";
+import "rxjs/add/operator/map";
 import { CustomError } from "../common/custom-error";
 import { AppError } from "../common/app-error";
 
