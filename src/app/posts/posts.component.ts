@@ -20,7 +20,7 @@ export class PostsComponent {
  getPosts(){
    let params = new HttpParams().set('userId', '1');
    let headers= new HttpHeaders().set('Authorization', 'auth-token');
-   this.posts= this.http.get<Post[]>(this.ROOT_URL + "/posts", {params, headers});
+   this.posts= this.http.get<Post[]>(this.ROOT_URL + "/posts", { headers});
  }
 
  createPost(){

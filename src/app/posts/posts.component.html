@@ -1,9 +1,39 @@
 <h1>Angular HTTP Basics </h1>
 <button (click)="getPosts()"> Get Posts</button>
 <h3> Get Data</h3>
-<div *ngFor="let post of posts | async">
-  {{ post |json}}
-</div>
+
+  <!-- {{ post |json}} -->
+  <table>
+    <tr>
+      <th>
+        ID
+      </th>
+      <th>
+        User ID
+      </th>
+      <th>
+        Title
+      </th>
+      <th>
+        Body
+      </th>
+    </tr>
+    <tr *ngFor="let post of posts | async">
+      <td>
+        {{post.id}}
+        </td>
+        <td>
+          {{post.userid}}
+          </td>
+          <td>
+            {{post.title}}
+            </td>
+            <td>
+              {{post.body}}
+              </td>
+      </tr>
+  </table>
+
 <button (click)="createPost()">
   Post Data
 </button>
