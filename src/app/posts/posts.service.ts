@@ -10,6 +10,8 @@ import { Post } from "./post";
 import { BehaviorSubject } from "rxjs";
 import "rxjs/add/operator/catch";
 import "rxjs/add/observable/throw";
+import { AppError } from './common/app-error';
+
 
 @Injectable()
 export class PostService {

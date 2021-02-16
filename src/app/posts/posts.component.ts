@@ -23,8 +23,10 @@ export class PostsComponent {
                 (data) => {
                   this.posts=(data as Post[]);
                 },
-                (error: AppError)=>{
-
+                (error: Response)=>{
+                    if(error.status===0){
+                      
+                    }
                 }
             );
  }
