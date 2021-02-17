@@ -8,9 +8,11 @@ import { Observable, throwError } from "rxjs";
 import { Injectable } from "@angular/core";
 import { Post } from "./post";
 import { BehaviorSubject } from "rxjs";
-import "rxjs/add/operator/catch";
-import "rxjs/add/observable/throw";
-import "rxjs/add/operator/map";
+// import "rxjs/add/operator/catch";
+import 'rxjs/add/operator/catch';
+// import "rxjs/add/observable/throw";
+ import "rxjs/add/operator/map";
+//import {map} from 'rxjs/operators';
 import { CustomError } from "../common/custom-error";
 import { AppError } from "../common/app-error";
 
