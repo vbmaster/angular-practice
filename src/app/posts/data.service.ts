@@ -4,15 +4,12 @@ import {
   HttpParams,
   HttpResponse
 } from "@angular/common/http";
-import { Observable, throwError } from "rxjs";
+import { Observable } from "rxjs";
 import { Injectable } from "@angular/core";
 import { Post } from "./post";
-import { BehaviorSubject } from "rxjs";
-// import "rxjs/add/operator/catch";
 import 'rxjs/add/operator/catch';
-// import "rxjs/add/observable/throw";
- import "rxjs/add/operator/map";
-//import {map} from 'rxjs/operators';
+import "rxjs/add/observable/throw";
+import "rxjs/add/operator/map";
 import { CustomError } from "../common/custom-error";
 import { AppError } from "../common/app-error";
 
@@ -24,9 +21,7 @@ export class DataService {
   getAll() {
     let params = new HttpParams().set("userId", "1");
     let headers = new HttpHeaders().set("Authorization", "auth-token");
-    return this.http.get(this.ROOT_URL , { headers })
-    .map( response=>response)
-    .catch(this.handleError);
+    return this.http.get(this.ROOT_URL , { headers }).catch(this.handleError);
   }
 
   create() {
