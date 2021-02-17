@@ -1,5 +1,13 @@
 <h1>Angular HTTP Basics </h1>
 <button (click)="getPosts()"> Get Posts</button>
+<h3>Stream data</h3>
+
+<div *ngIf="postwithuser$ | async as posts">
+  <p *ngFor="let post of posts">
+    {{post.id}} 
+  </p>
+</div>
+
 <h3> Get Data</h3>
 
   <!-- {{ post |json}} -->
